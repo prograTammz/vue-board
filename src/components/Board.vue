@@ -27,8 +27,11 @@
             if(this.isMouseDown){
                 let context = this.$refs.canvas.getContext('2d');
                 context.beginPath();
+                context.lineWidth = 5;
+                context.lineCap = 'round';
+                context.lineJoin = "round";
                 context.moveTo(this.currentEvent.offsetX, this.currentEvent.offsetY);
-                context.lineTo(e.offsetX, e.offsetY);
+                context.lineTo(e.offsetX, e.offsetY)
                 context.strokeStyle = this.color;
                 context.stroke();
                 this.currentEvent = e;
@@ -47,8 +50,9 @@
 
 <style scoped>
   #canvas{
-      margin-top: 10px;
+    margin-top: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: crosshair;
   }
 </style>
