@@ -1,5 +1,6 @@
 <template>
   <canvas ref="canvas" id= "canvas" width="600" height="400" @mousedown = "mouseDown" @mousemove = "mouseMove" @mouseup = "mouseUp" @mouseleave = "mouseLeave"></canvas>
+
 </template>
 
 <script>
@@ -30,8 +31,8 @@
                 context.lineWidth = 5;
                 context.lineCap = 'round';
                 context.lineJoin = "round";
-                context.moveTo(this.currentEvent.offsetX, this.currentEvent.offsetY);
-                context.lineTo(e.offsetX, e.offsetY)
+                context.moveTo(this.currentEvent.offsetX, this.currentEvent.offsetY+32);
+                context.lineTo(e.offsetX, e.offsetY+32)
                 context.strokeStyle = this.color;
                 context.stroke();
                 this.currentEvent = e;
@@ -53,6 +54,6 @@
     margin-top: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    cursor: crosshair;
+    cursor: url("../assets/cursors/pencil.png"),crosshair;
   }
 </style>
